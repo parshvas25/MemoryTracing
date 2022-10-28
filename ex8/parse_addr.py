@@ -13,7 +13,7 @@ def parse(fName):
     data = []
     f = open(fName, "r")
     for line in f:
-        data = line.strip().split(",")[0].split(" ")
+        data = line.strip().split(",")[0].split()
         ins = data[0].strip()
         addr = data[1].strip()
         pg = int(addr, 16) // 4096
