@@ -10,7 +10,7 @@ def parse(fName):
     instructions = []
     {("I", "0x400") : 2}
     pgCount = {}
-    data = []
+    data2 = []
     f = open(fName, "r")
     for line in f:
         data = line.strip().split(",")[0].split()
@@ -29,7 +29,7 @@ def parse(fName):
         if key[0] == "I":
             instructions.append(str(key[1]) + ',' + str(pgCount[(key[0],key[1])]))
         else:
-            data.append(str(key[1]) + ',' + str(pgCount[(key[0],key[1])]))
+            data2.append(str(key[1]) + ',' + str(pgCount[(key[0],key[1])]))
     
     print("INS: ", instructions)
     print("DATA: ", data)
