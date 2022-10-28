@@ -8,6 +8,8 @@
 import sys
 def parse(fName):
     instructions = []
+    insNum = 0
+    dataNum = 0
     {("I", "0x400") : 2}
     pgCount = {}
     data2 = []
@@ -28,8 +30,10 @@ def parse(fName):
     for key in pgCount:
         if key[0] == "I":
             instructions.append(hex(key[1]) + ',' + str(pgCount[(key[0],key[1])]))
+            insNum += pgCount[key[0], key[1]]
         else:
             data2.append(hex(key[1]) + ',' + str(pgCount[(key[0],key[1])]))
+            dataNum += pgCount[key[0], key[1]]
     
  
     print("Instructions")
@@ -41,7 +45,8 @@ def parse(fName):
         print(line)
         
         
-
+    print("TOTAL INS: ", insNum)
+    print("TOTAL DATA: ", dataNum)
 
             
 
