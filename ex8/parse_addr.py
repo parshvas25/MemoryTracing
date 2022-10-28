@@ -13,10 +13,10 @@ def parse(fName):
     data = []
     f = open(fName, "r")
     for line in f:
-        data = line.strip().split()
+        data = line.strip().split(",")[0].split(" ").strip()
         ins = data[0]
         addr = data[1]
-        pg = addr // 4096
+        pg = int(addr, 16) // 4096
         
         if ins == "I":
             pgCount[(ins, pg)] = pgCount.get((ins, pg), 0) + 1
