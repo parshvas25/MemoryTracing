@@ -37,7 +37,7 @@ def parse(fName):
         line2 = line.split(",")
         addr = line2[0]
         count = line2[1]
-        new_addr = str(hex(addr))
+        new_addr = hex(int(addr))
         print(new_addr + "," + count)
         print("\n")
     
@@ -47,7 +47,7 @@ def parse(fName):
         line2 = line.split(",")
         addr = line2[0]
         count = line2[1]
-        new_addr = str(hex(addr))
+        new_addr = hex(int(addr))
         print(new_addr + "," + count)
         print("\n")
         
