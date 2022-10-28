@@ -8,13 +8,39 @@
 import sys
 def parse(fName):
     instructions = []
+    {("I", "0x400") : 2}
+    pgCount = {}
     data = []
     f = open(fName, "r")
-    for line in fp:
-        #data = line.strip().split()
-       # ins = data[0]
-        # addr = data[1]
+    for line in f:
+        data = line.strip().split()
+        ins = data[0]
+        addr = data[1]
+        pg = addr // 4096
+        
+        if ins == "I":
+            pgCount[(ins, pg)] = pgCount.get((ins, pg), 0) + 1
+            # instructions.append(pg + ',' + pgCount[pg])
+        else:
+            pgCount[(ins, pg)] = pgCount.get((ins,pg),0) + 1
+            #data.append(pg + ',' + pgCount[pg])
+    
+    for key in pgCount:
+        if key[0] == "I":
+            instructions.append(pgCount[(key[0], key[1])] + ',' + pgCount[(key[0],key[1])])
+        else:
+            data.append(pgCount[(key[0], key[1])] + ',' + pgCount[(key[0],key[1])])
+    
+    print("Instructions\n")
+    for line in instructions:
         print(line)
+        print("\n")
+    
+    
+    print("Data\n")
+    for line in data:
+        print(line)
+        print("\n")
         
 
 
@@ -24,4 +50,4 @@ def parse(fName):
 
     return None 
 
-parse().argv
+parse(sys.argv[1])
