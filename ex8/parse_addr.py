@@ -24,25 +24,32 @@ def parse(fName):
         else:
             pgCount[(ins, pg)] = pgCount.get((ins, pg), 0) + 1
             #data.append(pg + ',' + pgCount[pg])
-    print(pgCount)
+
     for key in pgCount:
         if key[0] == "I":
             instructions.append(str(key[1]) + ',' + str(pgCount[(key[0],key[1])]))
         else:
             data2.append(str(key[1]) + ',' + str(pgCount[(key[0],key[1])]))
     
-    print("INS: ", instructions)
-    print("DATA: ", data2)
-    # print("Instructions\n")
-    # for line in instructions:
-    #     print(line)
-    #     print("\n")
+ 
+    print("Instructions\n")
+    for line in instructions:
+        line2 = line.split(",")
+        addr = line2[0]
+        count = line2[1]
+        new_addr = str(hex(addr))
+        print(new_addr + "," + count)
+        print("\n")
     
     
-    # print("Data\n")
-    # for line in data:
-    #     print(line)
-    #     print("\n")
+    print("Data\n")
+    for line in data:
+        line2 = line.split(",")
+        addr = line2[0]
+        count = line2[1]
+        new_addr = str(hex(addr))
+        print(new_addr + "," + count)
+        print("\n")
         
 
 
