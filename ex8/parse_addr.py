@@ -32,7 +32,7 @@ def parse(fName):
             data2.append(str(key[1]) + ',' + str(pgCount[(key[0],key[1])]))
     
     print("INS: ", instructions)
-    print("DATA: ", data)
+    print("DATA: ", data2)
     # print("Instructions\n")
     # for line in instructions:
     #     print(line)
