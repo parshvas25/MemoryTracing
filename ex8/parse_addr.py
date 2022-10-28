@@ -27,9 +27,9 @@ def parse(fName):
     
     for key in pgCount:
         if key[0] == "I":
-            instructions.append(pgCount[(key[0], key[1])] + ',' + pgCount[(key[0],key[1])])
+            instructions.append(str(key[1]) + ',' + str(pgCount[(key[0],key[1])]))
         else:
-            data.append(pgCount[(key[0], key[1])] + ',' + pgCount[(key[0],key[1])])
+            data.append(str(key[1]) + ',' + str(pgCount[(key[0],key[1])]))
     
     print("INS: ", instructions)
     print("DATA: ", data)
