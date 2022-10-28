@@ -22,17 +22,17 @@ def parse(fName):
             pgCount[(ins, pg)] = pgCount.get((ins, pg), 0) + 1
             # instructions.append(pg + ',' + pgCount[pg])
         else:
-            pgCount[(ins, pg)] = pgCount.get((ins,pg),0) + 1
+            pgCount[(ins, pg)] = pgCount.get((ins, pg), 0) + 1
             #data.append(pg + ',' + pgCount[pg])
-    
+    print(pgCount)
     for key in pgCount:
         if key[0] == "I":
             instructions.append(str(key[1]) + ',' + str(pgCount[(key[0],key[1])]))
         else:
             data.append(str(key[1]) + ',' + str(pgCount[(key[0],key[1])]))
     
-    print("INS: ", instructions)
-    print("DATA: ", data)
+    # print("INS: ", instructions)
+    # print("DATA: ", data)
     # print("Instructions\n")
     # for line in instructions:
     #     print(line)
