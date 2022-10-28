@@ -31,16 +31,18 @@ def parse(fName):
         else:
             data.append(pgCount[(key[0], key[1])] + ',' + pgCount[(key[0],key[1])])
     
-    print("Instructions\n")
-    for line in instructions:
-        print(line)
-        print("\n")
+    print("INS: ", instructions)
+    print("DATA: ", data)
+    # print("Instructions\n")
+    # for line in instructions:
+    #     print(line)
+    #     print("\n")
     
     
-    print("Data\n")
-    for line in data:
-        print(line)
-        print("\n")
+    # print("Data\n")
+    # for line in data:
+    #     print(line)
+    #     print("\n")
         
 
 
